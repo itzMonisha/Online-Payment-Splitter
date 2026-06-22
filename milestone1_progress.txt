@@ -1,0 +1,7 @@
+Milestone 1 Progress
+
+1. Project environment setup completed with React frontend, Spring Boot backend, and MySQL database integration.
+
+2. User authentication module implemented, including registration, login, password encryption, and JWT-based security.
+
+3. Role-Based Access Control (RBAC) configured with User and Admin roles, along with functional Login and Registration interfaces.
