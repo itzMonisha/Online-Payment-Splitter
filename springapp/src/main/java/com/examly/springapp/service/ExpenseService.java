@@ -29,37 +29,4 @@ public class ExpenseService {
         return expenseRepository.findById(id).orElse(null);
     }
 
-    // Update Expense
-    public Expense updateExpense(Long id, Expense expense) {
-
-        Expense existingExpense = expenseRepository.findById(id).orElse(null);
-
-        if (existingExpense != null) {
-
-            existingExpense.setName(expense.getName());
-            existingExpense.setAmount(expense.getAmount());
-            existingExpense.setCategory(expense.getCategory());
-
-            return expenseRepository.save(existingExpense);
-        }
-
-        return null;
-    }
-
-    // Delete Expense
-    public boolean deleteExpense(Long id) {
-
-        if (expenseRepository.existsById(id)) {
-            expenseRepository.deleteById(id);
-            return true;
-        }
-
-        return false;
-    }
-
-    // Filter by Category
-    public List<Expense> getExpensesByCategory(String category) {
-        return expenseRepository.findByCategory(category);
-    }
-
 }
