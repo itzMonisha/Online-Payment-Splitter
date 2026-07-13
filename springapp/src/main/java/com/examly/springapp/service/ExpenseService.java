@@ -24,7 +24,7 @@ public class ExpenseService {
         return expenseRepository.findAll();
     }
 
-    // Get Expense By Id
+    // Get Expense By Idipoh9
     public Expense getExpenseById(Long id) {
         return expenseRepository.findById(id).orElse(null);
     }
