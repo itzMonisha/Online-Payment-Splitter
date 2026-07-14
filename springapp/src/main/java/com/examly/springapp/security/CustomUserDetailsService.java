@@ -1,8 +1,5 @@
 package com.examly.springapp.security;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,36 +12,22 @@ import com.examly.springapp.repository.UserRepository;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    @Autowired
-    private UserRepository userRepository;
+        @Autowired
+        private UserRepository userRepository;
 
-    @Override
-    public UserDetails loadUserByUsername(String email)
-            throws UsernameNotFoundException {
+        @Override
+        public UserDetails loadUserByUsername(String email)
+                        throws UsernameNotFoundException {
 
-        Optional<com.examly.springapp.model.User> optionalUser =
-                userRepository.findByEmail(email);
+                com.examly.springapp.model.User user = userRepository
+                                .findByEmail(email)
+                                .orElseThrow(() -> new UsernameNotFoundException(
+                                                "User not found with email : " + email));
 
-        if (!optionalUser.isPresent()) {
-
-            throw new UsernameNotFoundException(
-                    "User not found with email : " + email);
-
+                return User.builder()
+                                .username(user.getEmail())
+                                .password(user.getPassword())
+                                .authorities(user.getRole().name())
+                                .build();
         }
-
-        com.examly.springapp.model.User user =
-                optionalUser.get();
-
-        return new User(
-
-                user.getEmail(),
-
-                user.getPassword(),
-
-                new ArrayList<>()
-
-        );
-
-    }
-
 }
