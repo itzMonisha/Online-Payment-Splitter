@@ -1,2 +1,2 @@
-# Online-Payment-Splitter
-Online Payment Splitter App is a web/mobile application that helps users split shared expenses, track payments, and calculate individual balances automatically, making group bill management simple and transparent.
+# dd2fe1e1-2a5e-4e82-9fe1-29e5a716d69f-fe4d55ff-a977-4a5b-b2f2-6e10a1b1e886
+Repository for Teams Project code and project management
