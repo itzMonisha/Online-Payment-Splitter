@@ -1,0 +1,287 @@
+/* =========================================================
+   SPLITPAY - FINAL SHARED LAYOUT FIX
+   Fixes:
+   1. Groups page content hidden behind sidebar
+   2. Expenses page losing its CSS/layout
+   3. Dashboard sidebar/content overlap
+   4. Dashboard logout button
+   5. Keeps Settlements/Profile style intact
+   ========================================================= */
+
+/* ---------- GLOBAL BOX MODEL ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* ---------- FIXED SIDEBAR ---------- */
+/* These selectors intentionally cover the sidebar class names
+   used in the SplitPay pages. */
+.user-sidebar,
+.sidebar,
+.app-sidebar {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+
+    width: 260px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+
+    height: 100vh !important;
+
+    z-index: 1000 !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    background: #ffffff !important;
+    border-right: 1px solid #e5e7eb !important;
+
+    flex-shrink: 0 !important;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+/* The most important rule: every page must start AFTER the
+   fixed 260px sidebar. */
+.main-content {
+    position: relative !important;
+
+    width: calc(100% - 260px) !important;
+    min-width: 0 !important;
+
+    margin-left: 260px !important;
+    padding: 0 !important;
+
+    overflow-x: hidden !important;
+}
+
+/* Some pages use page-content instead of main-content. */
+.page-content {
+    width: calc(100% - 260px) !important;
+    min-width: 0 !important;
+    margin-left: 260px !important;
+    min-height: 100vh !important;
+}
+
+/* If a page wrapper itself is the content wrapper. */
+.groups-page,
+.expenses-page,
+.dashboard-page,
+.notifications-page,
+.settlements-page {
+    min-width: 0 !important;
+}
+
+/* ---------- PAGE INNER CONTAINERS ---------- */
+.main-content > *,
+.page-content > * {
+    min-width: 0 !important;
+}
+
+/* Prevent a 100vw child from extending underneath/over the sidebar. */
+.main-content [style*="100vw"],
+.page-content [style*="100vw"] {
+    max-width: 100% !important;
+}
+
+/* ---------- GROUPS PAGE ---------- */
+.groups-page {
+    width: 100% !important;
+    min-height: 100vh !important;
+    padding: 32px 36px !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+}
+
+.groups-page .groups-header,
+.groups-page .page-header {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.groups-page .groups-container,
+.groups-page .groups-content,
+.groups-page .content-container {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+}
+
+/* ---------- EXPENSES PAGE ---------- */
+.expenses-page {
+    width: 100% !important;
+    min-height: 100vh !important;
+    padding: 32px 36px !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    background: #f5f7fc !important;
+}
+
+.expenses-page .expenses-header,
+.expenses-page .page-header {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.expenses-page .expenses-container,
+.expenses-page .expenses-content,
+.expenses-page .content-container {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+}
+
+/* ---------- DASHBOARD ---------- */
+.dashboard-page {
+    width: 100% !important;
+    min-height: 100vh !important;
+    padding: 28px 32px !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+}
+
+/* Dashboard should never cover the sidebar. */
+.dashboard-page .dashboard-content,
+.dashboard-page .content,
+.dashboard-page .dashboard-container {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+}
+
+/* ---------- SIDEBAR BOTTOM ---------- */
+.user-sidebar .user-sidebar-bottom,
+.sidebar .user-sidebar-bottom,
+.app-sidebar .user-sidebar-bottom {
+    width: 100% !important;
+    padding: 16px 14px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* ---------- LOGOUT BUTTON ----------
+   Broad fallback + specific selector.
+   This fixes the dashboard's browser-default button while
+   preserving the already-correct appearance on other pages.
+   ---------- */
+
+.user-sidebar .user-sidebar-bottom button,
+.sidebar .user-sidebar-bottom button,
+.app-sidebar .user-sidebar-bottom button {
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-width: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin: 10px 0 0 0 !important;
+    padding: 0 14px !important;
+
+    gap: 8px !important;
+
+    border: 1px solid #ffd0d6 !important;
+    border-radius: 10px !important;
+
+    background: #fff1f3 !important;
+    color: #e5485d !important;
+
+    font-family: inherit !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+
+    text-align: center !important;
+
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.user-sidebar .user-sidebar-bottom button:hover,
+.sidebar .user-sidebar-bottom button:hover,
+.app-sidebar .user-sidebar-bottom button:hover {
+    background: #ffe6ea !important;
+    border-color: #ffb5be !important;
+    color: #d9364d !important;
+}
+
+.user-sidebar .user-sidebar-bottom button svg,
+.sidebar .user-sidebar-bottom button svg,
+.app-sidebar .user-sidebar-bottom button svg {
+    width: 17px !important;
+    height: 17px !important;
+    flex: 0 0 17px !important;
+    display: block !important;
+    color: currentColor !important;
+}
+
+/* ---------- USER INFO ---------- */
+.user-sidebar .user-sidebar-bottom .user-info,
+.sidebar .user-sidebar-bottom .user-info,
+.app-sidebar .user-sidebar-bottom .user-info {
+    min-width: 0 !important;
+    max-width: 100% !important;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .user-sidebar,
+    .sidebar,
+    .app-sidebar {
+        width: 220px !important;
+        min-width: 220px !important;
+        max-width: 220px !important;
+    }
+
+    .main-content,
+    .page-content {
+        width: calc(100% - 220px) !important;
+        margin-left: 220px !important;
+    }
+
+    .groups-page,
+    .expenses-page,
+    .dashboard-page {
+        padding: 24px !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .user-sidebar,
+    .sidebar,
+    .app-sidebar {
+        position: relative !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        height: auto !important;
+    }
+
+    .main-content,
+    .page-content {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}

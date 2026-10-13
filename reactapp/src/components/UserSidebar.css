@@ -1,0 +1,570 @@
+/* =========================================================
+   USER SIDEBAR
+   ========================================================= */
+
+.user-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 270px;
+  height: 100vh;
+
+  background: #ffffff;
+
+  border-right: 1px solid #e7eaf2;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 28px 20px 20px;
+
+  box-sizing: border-box;
+
+  z-index: 1000;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.user-sidebar-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 0 10px 30px;
+}
+
+.user-sidebar-logo-icon {
+  width: 54px;
+  height: 54px;
+
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    #6255f5,
+    #7054e8
+  );
+
+  color: white;
+
+  box-shadow:
+    0 8px 20px rgba(98, 85, 245, 0.22);
+}
+
+.user-sidebar-logo h2 {
+  margin: 0;
+
+  color: #102a5c;
+
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.user-sidebar-logo span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #91a0bc;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.user-sidebar-section {
+  margin-top: 3px;
+}
+
+.user-sidebar-heading {
+  margin: 0 0 12px 12px;
+
+  color: #9aa7bd;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   SIDEBAR ITEM
+   ========================================================= */
+
+.user-sidebar-item {
+  position: relative;
+
+  width: 100%;
+
+  height: 50px;
+
+  border: none;
+
+  background: transparent;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 0 14px;
+
+  margin-bottom: 5px;
+
+  color: #415579;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.user-sidebar-item:hover {
+  background: #f5f6ff;
+
+  color: #5548e8;
+
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   ACTIVE
+   ========================================================= */
+
+.user-sidebar-item.active {
+  background: #eeedff;
+
+  color: #5446eb;
+
+  font-weight: 700;
+}
+
+.user-sidebar-item.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: -20px;
+
+  top: 0;
+
+  width: 4px;
+  height: 50px;
+
+  border-radius: 0 5px 5px 0;
+
+  background: #5b50ed;
+}
+
+
+/* =========================================================
+   ICON COLORS
+   ========================================================= */
+
+.sidebar-icon {
+  flex-shrink: 0;
+}
+
+.dashboard-icon {
+  color: #635bff;
+}
+
+.groups-icon {
+  color: #7c5cff;
+}
+
+.expenses-icon {
+  color: #2489e8;
+}
+
+.settlement-icon {
+  color: #22a879;
+}
+
+.notification-icon {
+  color: #e7a11b;
+}
+
+.profile-icon {
+  color: #7b61c9;
+}
+
+.settings-icon {
+  color: #60728f;
+}
+
+
+/* =========================================================
+   ACCOUNT
+   ========================================================= */
+
+.account-section {
+  margin-top: 25px;
+}
+
+
+/* =========================================================
+   NOTIFICATION DOT
+   ========================================================= */
+
+.notification-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #ff5b64;
+
+  margin-left: auto;
+
+  box-shadow:
+    0 0 0 3px #ffe9eb;
+}
+
+
+/* =========================================================
+   BOTTOM
+   ========================================================= */
+
+.user-sidebar-bottom {
+  margin-top: auto;
+
+  padding-top: 18px;
+
+  border-top: 1px solid #edf0f5;
+}
+
+
+/* =========================================================
+   HELP
+   ========================================================= */
+
+.user-sidebar-help {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 13px;
+
+  margin-bottom: 12px;
+
+  border-radius: 13px;
+
+  background: #f4f2ff;
+}
+
+.help-icon {
+  width: 35px;
+  height: 35px;
+
+  border-radius: 10px;
+
+  background: #e8e5ff;
+
+  color: #6255f5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-sidebar-help strong {
+  display: block;
+
+  color: #152e5f;
+
+  font-size: 12px;
+}
+
+.user-sidebar-help span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #9aa7bd;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   USER PROFILE
+   ========================================================= */
+
+.user-sidebar-profile {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 5px 14px;
+}
+
+.user-profile-avatar {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #6659ed;
+
+  color: white;
+
+  font-weight: 700;
+}
+
+.user-profile-info strong {
+  display: block;
+
+  color: #172f5e;
+
+  font-size: 12px;
+}
+
+.user-profile-info span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #9aa7bd;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+.user-sidebar-logout {
+  width: 100%;
+
+  height: 43px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background: #fff0f1;
+
+  color: #ef3d45;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.user-sidebar-logout:hover {
+  background: #ffe1e4;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .user-sidebar {
+    width: 220px;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .user-sidebar {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    min-height: auto;
+  }
+
+  .user-sidebar-bottom {
+    margin-top: 20px;
+  }
+  /* =========================================================
+   SPLITPAY DARK MODE - SIDEBAR
+   ========================================================= */
+
+/* SIDEBAR */
+body.splitpay-dark-mode .sidebar {
+    background: #0f172a !important;
+    border-right: 1px solid #1e293b !important;
+    color: #e2e8f0;
+}
+
+
+/* SIDEBAR BRAND */
+body.splitpay-dark-mode .sidebar .brand-text strong {
+    color: #f8fafc !important;
+}
+
+body.splitpay-dark-mode .sidebar .brand-text span {
+    color: #94a3b8 !important;
+}
+
+
+/* SIDEBAR SCROLLBAR */
+body.splitpay-dark-mode .sidebar-content::-webkit-scrollbar-thumb {
+    background: #334155 !important;
+}
+
+
+/* SIDEBAR SECTION LABEL */
+body.splitpay-dark-mode .sidebar-label {
+    color: #64748b !important;
+}
+
+
+/* SIDEBAR NAVIGATION */
+body.splitpay-dark-mode .sidebar .sidebar-link {
+    background: transparent;
+    color: #cbd5e1 !important;
+}
+
+
+/* NAVIGATION ICON */
+body.splitpay-dark-mode .sidebar .sidebar-link svg {
+    color: #94a3b8 !important;
+}
+
+
+/* NAVIGATION HOVER */
+body.splitpay-dark-mode .sidebar .sidebar-link:hover {
+    background: #1e1b4b !important;
+    color: #a5b4fc !important;
+}
+
+body.splitpay-dark-mode .sidebar .sidebar-link:hover svg {
+    color: #a5b4fc !important;
+}
+
+
+/* ACTIVE NAVIGATION */
+body.splitpay-dark-mode .sidebar .sidebar-link.active {
+    background: #312e81 !important;
+    color: #ffffff !important;
+}
+
+body.splitpay-dark-mode .sidebar .sidebar-link.active svg {
+    color: #ffffff !important;
+}
+
+
+/* SIDEBAR BOTTOM */
+body.splitpay-dark-mode .sidebar-bottom {
+    background: #0f172a !important;
+    border-top: 1px solid #1e293b !important;
+}
+
+
+/* HELP CARD */
+body.splitpay-dark-mode .sidebar .help-card {
+    background: #1e1b4b !important;
+}
+
+body.splitpay-dark-mode .sidebar .help-card strong {
+    color: #e2e8f0 !important;
+}
+
+body.splitpay-dark-mode .sidebar .help-card span {
+    color: #94a3b8 !important;
+}
+
+body.splitpay-dark-mode .sidebar .help-icon {
+    background: #312e81 !important;
+    color: #a5b4fc !important;
+}
+
+
+/* LOGOUT BUTTON */
+body.splitpay-dark-mode .sidebar .sidebar-logout {
+    background: #3f1d24 !important;
+    border: 1px solid #7f1d1d !important;
+    color: #fca5a5 !important;
+}
+
+body.splitpay-dark-mode .sidebar .sidebar-logout:hover {
+    background: #7f1d1d !important;
+    color: #ffffff !important;
+}
+
+
+/* USER PROFILE AT BOTTOM */
+body.splitpay-dark-mode .sidebar .sidebar-user {
+    background: #111827 !important;
+    border-top: 1px solid #1e293b !important;
+}
+
+body.splitpay-dark-mode .sidebar .sidebar-user strong {
+    color: #f1f5f9 !important;
+}
+
+body.splitpay-dark-mode .sidebar .sidebar-user span {
+    color: #94a3b8 !important;
+}
+/* =========================================================
+   GLOBAL DARK MODE
+   ========================================================= */
+
+body.splitpay-dark-mode {
+    background: #0b1120 !important;
+    color: #e2e8f0 !important;
+}
+
+body.splitpay-dark-mode #root {
+    background: #0b1120 !important;
+}
+
+body.splitpay-dark-mode .app-layout {
+    background: #0b1120 !important;
+}
+
+body.splitpay-dark-mode .main-content {
+    background: #0b1120 !important;
+}
+  
+
+}

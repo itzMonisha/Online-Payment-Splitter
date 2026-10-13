@@ -1,0 +1,832 @@
+/* =========================================================
+   SETTINGS PAGE
+========================================================= */
+
+.settings-page {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 36px 42px 60px;
+
+    box-sizing: border-box;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.settings-header {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 28px;
+}
+
+
+.settings-eyebrow {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: #5145e5;
+
+    text-transform: uppercase;
+}
+
+
+.settings-header h1 {
+    margin: 0 0 8px;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    color: #102a56;
+}
+
+
+.settings-subtitle {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #7184a6;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+.settings-save-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #5648e8;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(86, 72, 232, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.settings-save-button:hover {
+    background: #493bd7;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.settings-success {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 12px 16px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #b7ebd3;
+
+    border-radius: 10px;
+
+    background: #effcf5;
+
+    color: #16804b;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SETTINGS CARD
+========================================================= */
+
+.settings-card {
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe6f2;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(30, 50, 90, 0.05);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.settings-card-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 22px 24px;
+
+    border-bottom: 1px solid #e7ecf4;
+}
+
+
+.settings-card-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #edf0ff;
+
+    color: #5547e8;
+}
+
+
+.settings-card-icon.purple {
+    background: #eeebff;
+
+    color: #5748e8;
+}
+
+
+.settings-card-icon.yellow {
+    background: #fff5db;
+
+    color: #e6a700;
+}
+
+
+.settings-card-icon.blue {
+    background: #e8f4ff;
+
+    color: #1684df;
+}
+
+
+.settings-card-icon.red {
+    background: #fff0f0;
+
+    color: #e84a4a;
+}
+
+
+.settings-card-header h2 {
+    margin: 0 0 5px;
+
+    font-size: 17px;
+
+    color: #102a56;
+}
+
+
+.settings-card-header p {
+    margin: 0;
+
+    font-size: 12px;
+
+    color: #7890b4;
+}
+
+
+/* =========================================================
+   SETTINGS OPTION
+========================================================= */
+
+.settings-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    min-height: 76px;
+
+    padding: 16px 24px;
+
+    border-bottom: 1px solid #e7ecf4;
+
+    box-sizing: border-box;
+}
+
+
+.settings-option:last-child {
+    border-bottom: none;
+}
+
+
+.option-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #f1f3ff;
+
+    color: #5547e8;
+}
+
+
+.option-content {
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.option-content strong {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #18345f;
+}
+
+
+.option-content span {
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    color: #7890b4;
+}
+
+
+/* =========================================================
+   TOGGLE
+========================================================= */
+
+.toggle {
+    position: relative;
+
+    display: block;
+
+    width: 44px;
+    height: 24px;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+}
+
+
+.toggle input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+}
+
+
+.toggle-slider {
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 999px;
+
+    background: #d6dce8;
+
+    transition:
+        background 0.25s ease;
+}
+
+
+.toggle-slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    left: 3px;
+    top: 3px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.toggle input:checked + .toggle-slider {
+    background: #5748e8;
+}
+
+
+.toggle input:checked + .toggle-slider::before {
+    transform: translateX(20px);
+}
+
+
+/* =========================================================
+   SECURITY
+========================================================= */
+
+.settings-security-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    min-height: 76px;
+
+    padding: 16px 24px;
+
+    border-bottom: 1px solid #e7ecf4;
+
+    box-sizing: border-box;
+}
+
+
+.settings-security-row:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
+
+.secondary-button {
+    flex-shrink: 0;
+
+    padding: 9px 14px;
+
+    border: 1px solid #d8e0ed;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #5145df;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.secondary-button:hover {
+    background: #f4f3ff;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.logout-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px 24px;
+}
+
+
+.logout-content strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #18345f;
+
+    font-size: 13px;
+}
+
+
+.logout-content p {
+    margin: 0;
+
+    color: #7890b4;
+
+    font-size: 11px;
+}
+
+
+.logout-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 105px;
+
+    height: 38px;
+
+    padding: 0 15px;
+
+    border: 1px solid #ffb8b8;
+
+    border-radius: 8px;
+
+    background: #fff5f5;
+
+    color: #e33e3e;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+
+.logout-button:hover {
+    background: #ffe8e8;
+}
+
+
+/* =========================================================
+   GLOBAL APP LAYOUT
+========================================================= */
+
+html,
+body,
+#root {
+    min-height: 100%;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+body {
+    background: #f5f7fb;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.app-layout {
+    display: flex;
+
+    width: 100%;
+
+    min-height: 100vh;
+}
+
+
+/*
+   Your Sidebar has its own width.
+   Keep main content beside it.
+*/
+
+.app-layout .main-content {
+    flex: 1;
+
+    min-width: 0;
+
+    min-height: 100vh;
+
+    margin-left: 0;
+
+    background: #f5f7fb;
+
+    box-sizing: border-box;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* =========================================================
+   DARK MODE - WHOLE APPLICATION
+========================================================= */
+
+html.dark-mode,
+html.dark-mode body,
+body.dark-mode {
+    background: #0b1120 !important;
+
+    color: #e5e7eb !important;
+}
+
+
+html.dark-mode #root,
+body.dark-mode #root {
+    background: #0b1120 !important;
+}
+
+
+html.dark-mode .app-layout,
+body.dark-mode .app-layout {
+    background: #0b1120 !important;
+}
+
+
+html.dark-mode .main-content,
+body.dark-mode .main-content {
+    background: #0b1120 !important;
+}
+
+
+/* =========================================================
+   DARK MODE SETTINGS PAGE
+========================================================= */
+
+html.dark-mode .settings-page,
+body.dark-mode .settings-page {
+    background: transparent !important;
+}
+
+
+html.dark-mode .settings-header h1,
+body.dark-mode .settings-header h1 {
+    color: #f8fafc;
+}
+
+
+html.dark-mode .settings-subtitle,
+body.dark-mode .settings-subtitle {
+    color: #94a3b8;
+}
+
+
+html.dark-mode .settings-card,
+body.dark-mode .settings-card {
+    background: #111827 !important;
+
+    border-color: #263348 !important;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+html.dark-mode .settings-card-header,
+body.dark-mode .settings-card-header {
+    border-bottom-color: #263348;
+}
+
+
+html.dark-mode .settings-card-header h2,
+body.dark-mode .settings-card-header h2 {
+    color: #f8fafc;
+}
+
+
+html.dark-mode .settings-card-header p,
+body.dark-mode .settings-card-header p {
+    color: #94a3b8;
+}
+
+
+html.dark-mode .settings-option,
+body.dark-mode .settings-option {
+    border-bottom-color: #263348;
+}
+
+
+html.dark-mode .settings-security-row,
+body.dark-mode .settings-security-row {
+    border-bottom-color: #263348;
+}
+
+
+html.dark-mode .option-content strong,
+body.dark-mode .option-content strong {
+    color: #f1f5f9;
+}
+
+
+html.dark-mode .option-content span,
+body.dark-mode .option-content span {
+    color: #94a3b8;
+}
+
+
+html.dark-mode .logout-content strong,
+body.dark-mode .logout-content strong {
+    color: #f1f5f9;
+}
+
+
+html.dark-mode .logout-content p,
+body.dark-mode .logout-content p {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   DARK MODE SECONDARY BUTTON
+========================================================= */
+
+html.dark-mode .secondary-button,
+body.dark-mode .secondary-button {
+    background: #1e293b;
+
+    border-color: #475569;
+
+    color: #c4bfff;
+}
+
+
+html.dark-mode .secondary-button:hover,
+body.dark-mode .secondary-button:hover {
+    background: #293548;
+}
+
+
+/* =========================================================
+   DARK MODE LOGOUT
+========================================================= */
+
+html.dark-mode .logout-button,
+body.dark-mode .logout-button {
+    background: #2a171b;
+
+    border-color: #74353d;
+
+    color: #ff8c96;
+}
+
+
+html.dark-mode .logout-button:hover,
+body.dark-mode .logout-button:hover {
+    background: #381b21;
+}
+
+
+/* =========================================================
+   DARK MODE TOGGLE
+========================================================= */
+
+html.dark-mode .toggle-slider,
+body.dark-mode .toggle-slider {
+    background: #475569;
+}
+
+
+html.dark-mode .toggle input:checked + .toggle-slider,
+body.dark-mode .toggle input:checked + .toggle-slider {
+    background: #635bff;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .settings-page {
+        padding: 28px 22px 50px;
+    }
+
+
+    .settings-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .settings-save-button {
+        align-self: flex-start;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .settings-page {
+        padding: 22px 15px 40px;
+    }
+
+
+    .settings-option,
+    .settings-security-row {
+        padding: 15px;
+    }
+
+
+    .settings-card-header {
+        padding: 18px 15px;
+    }
+
+
+    .logout-content {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 18px 15px;
+    }
+
+
+    .logout-button {
+        width: 100%;
+    }
+
+}

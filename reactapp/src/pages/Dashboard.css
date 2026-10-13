@@ -1,0 +1,1517 @@
+/* =========================================================
+   SPLITPAY USER DASHBOARD
+   COMPLETE SIDEBAR + CONTENT FIX
+   ========================================================= */
+
+/* ---------- GLOBAL RESET ---------- */
+
+html,
+body,
+#root {
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.user-dashboard-layout,
+.dashboard-layout {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    margin: 0;
+    padding: 0;
+
+    background: #f5f7fc;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+/*
+   The Dashboard JSX has its own sidebar:
+       <aside className="user-sidebar dashboard-sidebar">
+
+   Therefore the sidebar is part of this layout and occupies
+   real horizontal space. It is NOT fixed.
+
+   This is the key fix for the overlap in your screenshot.
+*/
+
+.user-dashboard-layout > .user-sidebar,
+.dashboard-layout > .dashboard-sidebar {
+    position: sticky;
+
+    top: 0;
+    left: 0;
+
+    flex: 0 0 260px;
+
+    width: 260px;
+    min-width: 260px;
+
+    height: 100vh;
+    max-height: 100vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    z-index: 100;
+
+    background: #ffffff;
+
+    border-right: 1px solid #e2e7f0;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD CONTENT
+   ========================================================= */
+
+.user-dashboard-layout > .user-dashboard-main,
+.dashboard-layout > .dashboard-page {
+    flex: 1 1 auto;
+
+    width: auto;
+    min-width: 0;
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 32px 36px 60px;
+
+    overflow-x: hidden;
+
+    background: #f5f7fc;
+
+    box-sizing: border-box;
+}
+
+.user-dashboard-main > *,
+.dashboard-page > * {
+    max-width: 100%;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   SIDEBAR BRAND
+   ========================================================= */
+
+.user-brand {
+    height: 88px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 0 20px;
+
+    border-bottom: 1px solid #edf0f5;
+
+    background: #ffffff;
+}
+
+.user-brand-icon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #5b4df6,
+        #4f46e5
+    );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 18px rgba(79, 70, 229, 0.22);
+}
+
+.user-brand h2 {
+    margin: 0;
+
+    color: #102a56;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.user-brand span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #8292ad;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
+.user-sidebar-section {
+    padding: 24px 14px 0;
+}
+
+.user-sidebar-heading {
+    margin: 0 10px 10px;
+
+    color: #8b9bb6;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+}
+
+.user-sidebar-section.account-section {
+    padding-top: 28px;
+}
+
+.user-sidebar-link {
+    width: 100%;
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 5px;
+    padding: 0 13px;
+
+    border: 0;
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #203b67;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.user-sidebar-link svg {
+    flex-shrink: 0;
+    color: #657999;
+}
+
+.user-sidebar-link:hover {
+    background: #f3f1ff;
+    color: #5146e5;
+}
+
+.user-sidebar-link:hover svg {
+    color: #5146e5;
+}
+
+.user-sidebar-link.active {
+    background: #eeeaff;
+    color: #5146e5;
+
+    font-weight: 700;
+
+    box-shadow:
+        inset 3px 0 0 #5b4df6;
+}
+
+.user-sidebar-link.active svg {
+    color: #5146e5;
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.user-sidebar-bottom {
+    margin-top: auto;
+
+    padding: 14px;
+
+    border-top: 1px solid #e5e9f0;
+
+    background: #ffffff;
+}
+
+.user-help-box {
+    min-height: 62px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 16px;
+    padding: 10px;
+
+    border-radius: 12px;
+
+    background: #f1efff;
+}
+
+.user-help-icon {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #e4e0ff;
+
+    color: #5b4df6;
+
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.user-help-box strong {
+    display: block;
+
+    color: #263a65;
+
+    font-size: 11px;
+}
+
+.user-help-box span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #8998b0;
+
+    font-size: 9px;
+}
+
+.user-user-box {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+
+    margin-bottom: 12px;
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eeeaff;
+
+    color: #5146e5;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.user-user-box > div:last-child {
+    min-width: 0;
+}
+
+.user-user-box strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #102a56;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-user-box span {
+    display: inline-block;
+
+    margin-top: 3px;
+    padding: 2px 6px;
+
+    border-radius: 8px;
+
+    background: #e8f8f0;
+
+    color: #079455;
+
+    font-size: 7px;
+    font-weight: 800;
+}
+
+.user-logout {
+    width: 100%;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border: 1px solid #ffbcbc;
+    border-radius: 8px;
+
+    background: #fff7f7;
+
+    color: #e54848;
+
+    font-family: inherit;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.user-logout:hover {
+    background: #ffe9e9;
+    border-color: #ff9292;
+}
+
+
+/* =========================================================
+   DASHBOARD HEADER
+   ========================================================= */
+
+.user-dashboard-header {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 22px;
+
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid #e1e6ef;
+}
+
+.user-dashboard-header > div {
+    min-width: 0;
+}
+
+.user-dashboard-eyebrow {
+    margin: 0 0 7px;
+
+    color: #5b4df6;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.user-dashboard-header h1 {
+    margin: 0;
+
+    color: #102a5c;
+
+    font-size: 30px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.user-dashboard-subtitle {
+    margin: 7px 0 0;
+
+    color: #7890b3;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+.user-refresh-button {
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+
+    padding: 0 17px;
+
+    border: 1px solid #5b4df6;
+    border-radius: 9px;
+
+    background: #5b4df6;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(91, 77, 246, 0.2);
+}
+
+.user-refresh-button:hover {
+    background: #4c3de8;
+}
+
+.user-refresh-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.user-refresh-spin {
+    animation: user-dashboard-spin 0.9s linear infinite;
+}
+
+@keyframes user-dashboard-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   WELCOME BANNER
+   ========================================================= */
+
+.user-welcome-banner {
+    width: 100%;
+
+    min-height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 20px;
+    padding: 25px 28px;
+
+    border: 1px solid #ddd9ff;
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1efff 0%,
+            #ffffff 65%
+        );
+
+    box-shadow:
+        0 5px 20px rgba(38, 60, 100, 0.04);
+}
+
+.user-welcome-content {
+    min-width: 0;
+}
+
+.user-welcome-content > span {
+    color: #5b4df6;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.user-welcome-content h2 {
+    margin: 7px 0 0;
+
+    color: #102a5c;
+
+    font-size: 22px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+.user-welcome-content p {
+    margin: 7px 0 0;
+
+    color: #8292ad;
+
+    font-size: 11px;
+}
+
+.user-create-group-button {
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+
+    padding: 0 16px;
+
+    border: 1px solid #5b4df6;
+    border-radius: 9px;
+
+    background: #5b4df6;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(91, 77, 246, 0.18);
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.user-dashboard-error {
+    margin-bottom: 20px;
+    padding: 12px 15px;
+
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+
+    background: #fff1f2;
+
+    color: #b42318;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SUMMARY CARDS
+   ========================================================= */
+
+.user-dashboard-summary-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.user-summary-card {
+    min-height: 94px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 16px;
+
+    border: 1px solid #e1e6ef;
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 5px 20px rgba(38, 60, 100, 0.04);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.user-summary-card.clickable {
+    cursor: pointer;
+}
+
+.user-summary-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 24px rgba(38, 60, 100, 0.08);
+}
+
+.user-summary-icon {
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+}
+
+.user-summary-icon.purple {
+    background: #eeecff;
+    color: #5b4df6;
+}
+
+.user-summary-icon.blue {
+    background: #e8f4ff;
+    color: #1684dc;
+}
+
+.user-summary-icon.orange {
+    background: #fff1df;
+    color: #f59e0b;
+}
+
+.user-summary-icon.green {
+    background: #e7f8ef;
+    color: #10a66a;
+}
+
+.user-summary-card span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #8292ad;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+}
+
+.user-summary-card strong {
+    display: block;
+
+    color: #102a5c;
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   TWO FEATURE CARDS
+   ========================================================= */
+
+.user-dashboard-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.user-feature-card {
+    min-width: 0;
+
+    overflow: hidden;
+
+    border: 1px solid #e1e6ef;
+    border-radius: 15px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 5px 20px rgba(38, 60, 100, 0.04);
+}
+
+.user-feature-header {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 16px 18px;
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+.user-feature-title {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    min-width: 0;
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+}
+
+.feature-icon.purple {
+    background: #eeecff;
+    color: #5b4df6;
+}
+
+.feature-icon.blue {
+    background: #e8f4ff;
+    color: #1684dc;
+}
+
+.user-feature-title > div:last-child {
+    min-width: 0;
+}
+
+.user-feature-title h2 {
+    margin: 0;
+
+    color: #102a5c;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.user-feature-title p {
+    margin: 4px 0 0;
+
+    color: #8c9bb3;
+
+    font-size: 9px;
+}
+
+.user-view-all {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 4px;
+
+    flex-shrink: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #5b4df6;
+
+    font-family: inherit;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+.user-view-all:hover {
+    color: #4338ca;
+}
+
+.user-feature-body {
+    min-height: 210px;
+}
+
+
+/* =========================================================
+   EMPTY / LOADING
+   ========================================================= */
+
+.user-empty-state {
+    min-height: 210px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    text-align: center;
+}
+
+.user-empty-icon,
+.user-loading-spinner {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 11px;
+
+    border-radius: 13px;
+}
+
+.user-empty-icon.purple {
+    background: #eeecff;
+    color: #5b4df6;
+}
+
+.user-empty-icon.blue {
+    background: #e8f4ff;
+    color: #1684dc;
+}
+
+.user-loading-spinner {
+    background: #f1efff;
+    color: #5b4df6;
+}
+
+.user-loading-spinner svg {
+    animation: user-dashboard-spin 0.9s linear infinite;
+}
+
+.user-empty-state strong {
+    color: #263a65;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.user-empty-state p {
+    margin: 6px 0 13px;
+
+    color: #91a0b8;
+
+    font-size: 10px;
+}
+
+.user-empty-button {
+    height: 35px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 0 13px;
+
+    border: 1px solid #d8d3ff;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #5b4df6;
+
+    font-family: inherit;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.user-empty-button:hover {
+    background: #5b4df6;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   GROUP LIST
+   ========================================================= */
+
+.user-list {
+    padding: 7px 18px 15px;
+}
+
+.user-list-item {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+.user-list-item:last-child {
+    border-bottom: 0;
+}
+
+.user-list-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+}
+
+.user-list-icon.purple {
+    background: #eeecff;
+    color: #5b4df6;
+}
+
+.user-list-icon.blue {
+    background: #e8f4ff;
+    color: #1684dc;
+}
+
+.user-list-content {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.user-list-content strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #263a65;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-list-content span {
+    display: block;
+
+    overflow: hidden;
+
+    margin-top: 3px;
+
+    color: #8e9bb0;
+
+    font-size: 9px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-list-arrow {
+    width: 31px;
+    height: 31px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: #f5f6fa;
+
+    color: #7183a1;
+
+    cursor: pointer;
+}
+
+.user-list-arrow:hover {
+    background: #eeecff;
+    color: #5b4df6;
+}
+
+
+/* =========================================================
+   PERSONAL EXPENSES
+   ========================================================= */
+
+.user-personal-expenses-list {
+    padding: 8px 18px 15px;
+}
+
+.user-personal-expense-card {
+    padding: 12px 0;
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+.user-personal-expense-card:last-child {
+    border-bottom: 0;
+}
+
+.personal-expense-top {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.personal-expense-title {
+    min-width: 0;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.personal-expense-title strong {
+    overflow: hidden;
+
+    color: #263a65;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.personal-expense-title span {
+    width: fit-content;
+
+    padding: 3px 6px;
+
+    border-radius: 6px;
+
+    background: #f0edff;
+
+    color: #5949df;
+
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.personal-expense-total {
+    flex-shrink: 0;
+
+    color: #182c5a;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.personal-expense-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 8px;
+    padding-left: 48px;
+}
+
+.personal-expense-meta span {
+    color: #91a0b8;
+
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.personal-expense-meta strong {
+    overflow: hidden;
+
+    color: #526789;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-feature-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 18px;
+
+    border-top: 1px solid #edf0f5;
+
+    background: #fafbfe;
+}
+
+.user-feature-footer span {
+    color: #7e8da8;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.user-feature-footer strong {
+    color: #102a5c;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+body.dark-mode .user-dashboard-layout,
+body.dark-mode .dashboard-layout {
+    background: #020617;
+}
+
+body.dark-mode .user-dashboard-layout > .user-sidebar,
+body.dark-mode .dashboard-layout > .dashboard-sidebar {
+    background: #0f172a;
+    border-right-color: #1e293b;
+}
+
+body.dark-mode .user-brand,
+body.dark-mode .user-sidebar-bottom {
+    background: #0f172a;
+    border-color: #1e293b;
+}
+
+body.dark-mode .user-brand h2,
+body.dark-mode .user-user-box strong {
+    color: #f8fafc;
+}
+
+body.dark-mode .user-brand span,
+body.dark-mode .user-help-box span {
+    color: #94a3b8;
+}
+
+body.dark-mode .user-sidebar-heading {
+    color: #64748b;
+}
+
+body.dark-mode .user-sidebar-link {
+    color: #cbd5e1;
+}
+
+body.dark-mode .user-sidebar-link svg {
+    color: #94a3b8;
+}
+
+body.dark-mode .user-sidebar-link:hover {
+    background: #1e1b4b;
+    color: #a5b4fc;
+}
+
+body.dark-mode .user-sidebar-link.active {
+    background: #312e81;
+    color: #ffffff;
+}
+
+body.dark-mode .user-sidebar-link.active svg {
+    color: #ffffff;
+}
+
+body.dark-mode .user-help-box {
+    background: #17153b;
+}
+
+body.dark-mode .user-help-icon {
+    background: #27234f;
+    color: #a5b4fc;
+}
+
+body.dark-mode .user-avatar {
+    background: #27234f;
+    color: #a5b4fc;
+}
+
+body.dark-mode .user-dashboard-layout > .user-dashboard-main,
+body.dark-mode .dashboard-layout > .dashboard-page {
+    background: #020617;
+    color: #e2e8f0;
+}
+
+body.dark-mode .user-dashboard-header {
+    border-bottom-color: #1e293b;
+}
+
+body.dark-mode .user-dashboard-header h1,
+body.dark-mode .user-summary-card strong,
+body.dark-mode .user-feature-title h2,
+body.dark-mode .user-feature-footer strong,
+body.dark-mode .user-welcome-content h2,
+body.dark-mode .user-empty-state strong,
+body.dark-mode .user-list-content strong,
+body.dark-mode .personal-expense-title strong,
+body.dark-mode .personal-expense-total {
+    color: #f8fafc;
+}
+
+body.dark-mode .user-dashboard-subtitle,
+body.dark-mode .user-welcome-content p,
+body.dark-mode .user-summary-card span,
+body.dark-mode .user-feature-title p,
+body.dark-mode .user-empty-state p,
+body.dark-mode .user-list-content span,
+body.dark-mode .personal-expense-meta span,
+body.dark-mode .user-feature-footer span {
+    color: #94a3b8;
+}
+
+body.dark-mode .user-welcome-banner {
+    border-color: #312e81;
+    background:
+        linear-gradient(
+            135deg,
+            #17153b 0%,
+            #0f172a 70%
+        );
+}
+
+body.dark-mode .user-summary-card,
+body.dark-mode .user-feature-card {
+    background: #0f172a;
+    border-color: #1e293b;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .user-feature-header,
+body.dark-mode .user-list-item,
+body.dark-mode .user-personal-expense-card {
+    border-color: #1e293b;
+}
+
+body.dark-mode .user-list-arrow {
+    background: #111827;
+    color: #94a3b8;
+}
+
+body.dark-mode .user-feature-footer {
+    background: #111827;
+    border-color: #1e293b;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .user-dashboard-layout > .user-sidebar,
+    .dashboard-layout > .dashboard-sidebar {
+        flex-basis: 240px;
+        width: 240px;
+        min-width: 240px;
+    }
+
+    .user-dashboard-layout > .user-dashboard-main,
+    .dashboard-layout > .dashboard-page {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .user-dashboard-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .user-dashboard-layout > .user-sidebar,
+    .dashboard-layout > .dashboard-sidebar {
+        flex-basis: 220px;
+        width: 220px;
+        min-width: 220px;
+    }
+
+    .user-dashboard-layout > .user-dashboard-main,
+    .dashboard-layout > .dashboard-page {
+        padding: 25px 20px 45px;
+    }
+
+    .user-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .user-dashboard-layout,
+    .dashboard-layout {
+        display: block;
+    }
+
+    .user-dashboard-layout > .user-sidebar,
+    .dashboard-layout > .dashboard-sidebar {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 100%;
+        min-width: 100%;
+
+        height: auto;
+        max-height: none;
+
+        overflow: visible;
+    }
+
+    .user-dashboard-layout > .user-dashboard-main,
+    .dashboard-layout > .dashboard-page {
+        width: 100%;
+        min-width: 0;
+
+        padding: 22px 18px 40px;
+    }
+
+    .user-dashboard-header {
+        flex-direction: column;
+    }
+
+    .user-refresh-button {
+        width: 100%;
+    }
+
+    .user-welcome-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-create-group-button {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .user-dashboard-layout > .user-dashboard-main,
+    .dashboard-layout > .dashboard-page {
+        padding: 18px 14px 35px;
+    }
+
+    .user-dashboard-header h1 {
+        font-size: 24px;
+    }
+
+    .user-dashboard-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .user-summary-card {
+        min-height: 86px;
+    }
+
+    .user-feature-header {
+        padding: 14px;
+    }
+
+    .user-list,
+    .user-personal-expenses-list {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .personal-expense-meta {
+        padding-left: 0;
+    }
+}
+
+
+/* =========================================================
+   SAFETY OVERRIDES
+   These prevent older dashboard CSS rules from recreating
+   the sidebar overlap.
+   ========================================================= */
+
+.user-dashboard-layout .user-dashboard-main {
+    margin-left: 0 !important;
+    position: relative !important;
+}
+
+.user-dashboard-layout .user-sidebar {
+    left: auto !important;
+}
+
+@media (min-width: 801px) {
+
+    .user-dashboard-layout .user-sidebar {
+        position: sticky !important;
+    }
+
+    .user-dashboard-layout .user-dashboard-main {
+        width: auto !important;
+        max-width: none !important;
+    }
+}

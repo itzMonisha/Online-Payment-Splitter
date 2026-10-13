@@ -1,0 +1,625 @@
+/* =========================================================
+   ADD EXPENSE PAGE
+   ========================================================= */
+
+.add-expense-page {
+    min-height: 100%;
+    padding: 34px 42px 60px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.add-expense-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 28px;
+}
+
+
+.add-expense-title-area {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+
+.add-expense-icon {
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: #eeeaff;
+    color: #5b4df5;
+
+    flex-shrink: 0;
+}
+
+
+.page-eyebrow {
+    margin: 0 0 7px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    color: #5b4df5;
+}
+
+
+.add-expense-header h1 {
+    margin: 0;
+
+    font-size: 30px;
+    line-height: 1.15;
+
+    color: #112d5a;
+
+    font-weight: 800;
+}
+
+
+.add-expense-header p:not(.page-eyebrow) {
+    margin: 8px 0 0;
+
+    font-size: 13px;
+
+    color: #7590b5;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.expense-back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 11px 17px;
+
+    border: 1px solid #d9e1ef;
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #294a78;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+.expense-back-button:hover {
+    border-color: #5b4df5;
+    color: #5b4df5;
+    transform: translateY(-1px);
+}
+
+
+.expense-back-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.add-expense-card {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    background: #ffffff;
+
+    border: 1px solid #dce4f0;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(34, 65, 110, 0.07);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.add-expense-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 25px 30px;
+
+    border-bottom: 1px solid #e6ebf3;
+}
+
+
+.card-heading-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #eeeaff;
+    color: #5b4df5;
+}
+
+
+.add-expense-card-header h2 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    color: #112d5a;
+}
+
+
+.add-expense-card-header p {
+    margin: 5px 0 0;
+
+    font-size: 12px;
+
+    color: #7891b5;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.add-expense-form {
+    padding: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px 24px;
+}
+
+
+.expense-form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.expense-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+
+.expense-form-group label {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #173765;
+}
+
+
+.required {
+    margin-left: 4px;
+
+    color: #ef5350;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.input-with-icon {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.input-with-icon > svg {
+    position: absolute;
+
+    left: 14px;
+
+    color: #8ba0bf;
+
+    pointer-events: none;
+}
+
+
+.input-with-icon input,
+.input-with-icon select {
+    width: 100%;
+
+    height: 46px;
+
+    box-sizing: border-box;
+
+    padding: 0 14px 0 42px;
+
+    border: 1px solid #d8e1ee;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #193a68;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.input-with-icon input::placeholder {
+    color: #a5b5cb;
+}
+
+
+.input-with-icon input:focus,
+.input-with-icon select:focus {
+    border-color: #6557f6;
+
+    box-shadow:
+        0 0 0 3px rgba(101, 87, 246, 0.10);
+}
+
+
+.input-with-icon select {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   ALERTS
+   ========================================================= */
+
+.expense-alert {
+    margin: 22px 30px 0;
+
+    padding: 13px 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+}
+
+
+.expense-alert strong {
+    font-size: 13px;
+}
+
+
+.expense-error {
+    border: 1px solid #ffcaca;
+
+    background: #fff4f4;
+
+    color: #c73636;
+}
+
+
+.expense-success {
+    border: 1px solid #bce8d2;
+
+    background: #f0fff7;
+
+    color: #14834f;
+}
+
+
+/* =========================================================
+   NO GROUPS
+   ========================================================= */
+
+.no-groups-message {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 11px 13px;
+
+    border-radius: 8px;
+
+    background: #f7f8ff;
+
+    border: 1px solid #e4e5ff;
+
+    font-size: 12px;
+
+    color: #7186a7;
+}
+
+
+.no-groups-message button {
+    border: none;
+
+    background: transparent;
+
+    color: #5b4df5;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.no-groups-message button:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   PAYER CARD
+   ========================================================= */
+
+.expense-payer-card {
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 15px;
+
+    border: 1px solid #e1e7f1;
+
+    border-radius: 10px;
+
+    background: #f8faff;
+}
+
+
+.payer-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #e9f4ff;
+
+    color: #2587dc;
+
+    flex-shrink: 0;
+}
+
+
+.expense-payer-card > div:last-child {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.payer-label {
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+
+    color: #91a3bd;
+}
+
+
+.expense-payer-card strong {
+    font-size: 13px;
+
+    color: #173765;
+}
+
+
+.expense-payer-card small {
+    font-size: 11px;
+
+    color: #8397b4;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.add-expense-actions {
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding-top: 8px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+
+.cancel-expense-button,
+.save-expense-button {
+    height: 43px;
+
+    padding: 0 20px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    transition: all 0.2s ease;
+}
+
+
+.cancel-expense-button {
+    border: 1px solid #d8e1ee;
+
+    background: #ffffff;
+
+    color: #536f98;
+}
+
+
+.cancel-expense-button:hover {
+    border-color: #9eabc0;
+
+    background: #f8faff;
+}
+
+
+.save-expense-button {
+    border: 1px solid #5b4df5;
+
+    background: #5b4df5;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 5px 14px rgba(91, 77, 245, 0.20);
+}
+
+
+.save-expense-button:hover {
+    background: #4e40e8;
+
+    transform: translateY(-1px);
+}
+
+
+.cancel-expense-button:disabled,
+.save-expense-button:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .add-expense-page {
+        padding: 24px 18px 40px;
+    }
+
+
+    .add-expense-header {
+        flex-direction: column;
+    }
+
+
+    .expense-back-button {
+        width: 100%;
+    }
+
+
+    .add-expense-form {
+        grid-template-columns: 1fr;
+
+        padding: 22px;
+    }
+
+
+    .expense-form-group.full-width,
+    .expense-payer-card,
+    .add-expense-actions {
+        grid-column: 1;
+    }
+
+
+    .add-expense-card-header {
+        padding: 22px;
+    }
+
+
+    .expense-alert {
+        margin-left: 22px;
+        margin-right: 22px;
+    }
+
+
+    .add-expense-actions {
+        justify-content: stretch;
+    }
+
+
+    .cancel-expense-button,
+    .save-expense-button {
+        flex: 1;
+    }
+
+}

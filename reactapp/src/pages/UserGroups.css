@@ -1,0 +1,629 @@
+/* =========================================================
+   SPLITPAY - USER GROUPS
+   Complete stylesheet for UserGroups.jsx
+   Includes normal-user and administrator group views.
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+.user-app-layout {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background: #f5f7fc;
+}
+
+.user-groups-main {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 34px 40px 55px;
+    background: #f5f7fc;
+    overflow-x: hidden;
+}
+
+.user-groups-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e0e6ef;
+}
+
+.user-groups-eyebrow {
+    margin: 0 0 7px;
+    color: #5b4ee8;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.user-groups-header h1 {
+    margin: 0;
+    color: #17366d;
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.user-groups-header > div > p:last-child {
+    margin: 8px 0 0;
+    color: #8294ae;
+    font-size: 13px;
+}
+
+.user-groups-create {
+    min-height: 42px;
+    padding: 0 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: 0;
+    border-radius: 9px;
+    background: #5b4ee8;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.user-groups-create:hover {
+    background: #4e42d9;
+}
+
+.user-groups-summary {
+    width: 100%;
+    min-height: 100px;
+    padding: 18px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #ffffff;
+    border: 1px solid #e0e6ef;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(24, 52, 92, 0.04);
+}
+
+.user-groups-summary-icon {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    background: #eeebff;
+    color: #5b4ee8;
+}
+
+.user-groups-summary > div:nth-child(2) {
+    min-width: 130px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-groups-summary > div:nth-child(2) > span {
+    color: #8495ad;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.user-groups-summary > div:nth-child(2) > strong {
+    margin-top: 2px;
+    color: #17366d;
+    font-size: 23px;
+}
+
+.user-groups-summary > div:nth-child(2) > small {
+    margin-top: 2px;
+    color: #9aa8bb;
+    font-size: 9px;
+}
+
+.user-groups-search {
+    width: 330px;
+    max-width: 100%;
+    height: 42px;
+    margin-left: auto;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #dce3ed;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #8b9ab0;
+}
+
+.user-groups-search:focus-within {
+    border-color: #6a5ff0;
+    box-shadow: 0 0 0 3px rgba(106, 95, 240, 0.08);
+}
+
+.user-groups-search input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #263c63;
+    font-size: 11px;
+}
+
+.user-groups-section {
+    width: 100%;
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e0e6ef;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(24, 52, 92, 0.04);
+}
+
+.user-groups-section-header {
+    min-height: 52px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.user-groups-section-header h2 {
+    margin: 0;
+    color: #17366d;
+    font-size: 18px;
+}
+
+.user-groups-section-header p {
+    margin: 4px 0 0;
+    color: #8c9cb1;
+    font-size: 10px;
+}
+
+.new-group-link {
+    min-height: 34px;
+    padding: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 0;
+    border-radius: 8px;
+    background: #f0edff;
+    color: #5748e8;
+    font-size: 10px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.user-groups-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.user-group-card {
+    min-width: 0;
+    min-height: 225px;
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e0e6ef;
+    border-radius: 13px;
+    transition: 0.2s ease;
+}
+
+.user-group-card:hover {
+    transform: translateY(-2px);
+    border-color: #d7d2ff;
+    box-shadow: 0 10px 25px rgba(31, 55, 90, 0.07);
+}
+
+.user-group-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.group-letter {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #eeebff;
+    color: #5b4ee8;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.group-arrow {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 8px;
+    background: #f5f6fa;
+    color: #667891;
+    cursor: pointer;
+}
+
+.user-group-card h3 {
+    margin: 15px 0 5px;
+    color: #17366d;
+    font-size: 15px;
+}
+
+.user-group-card > p {
+    min-height: 31px;
+    margin: 0;
+    color: #8b9ab1;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.user-group-card-footer {
+    margin-top: auto;
+    padding-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 9px;
+    border-top: 1px solid #edf0f5;
+}
+
+.group-members {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #8999af;
+    font-size: 9px;
+}
+
+.view-group-button {
+    min-height: 30px;
+    padding: 0 9px;
+    border: 0;
+    border-radius: 8px;
+    background: #f0edff;
+    color: #5748e8;
+    font-size: 9px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.groups-state {
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    text-align: center;
+    color: #8292a9;
+}
+
+.groups-state h3 {
+    margin: 10px 0 5px;
+    color: #17366d;
+    font-size: 16px;
+}
+
+.groups-state p {
+    max-width: 400px;
+    margin: 0 0 16px;
+    color: #91a0b7;
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+.groups-state button {
+    min-height: 36px;
+    padding: 0 13px;
+    border: 0;
+    border-radius: 8px;
+    background: #5b4ee8;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.error-state {
+    color: #e54852;
+}
+
+.error-state h3 {
+    color: #d83f4a;
+}
+
+.error-state button {
+    background: #e54852;
+}
+
+.loading-spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #e5e2ff;
+    border-top-color: #5b4ee8;
+    border-radius: 50%;
+    animation: userGroupsSpin 0.8s linear infinite;
+}
+
+@keyframes userGroupsSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.empty-group-icon {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 17px;
+    background: #eeebff;
+    color: #5b4ee8;
+}
+
+
+/* =========================================================
+   ADMIN GROUP PAGE
+   ========================================================= */
+
+.admin-groups-page {
+    color: #17366d;
+}
+
+.admin-group-summary-card {
+    min-height: 95px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #dfe6f0;
+    border-radius: 13px;
+    box-shadow: 0 4px 15px rgba(24, 52, 92, 0.04);
+}
+
+.admin-group-summary-card strong {
+    display: block;
+    color: #17366d;
+    font-size: 22px;
+}
+
+.admin-group-summary-card span {
+    display: block;
+    margin-top: 4px;
+    color: #8796ad;
+    font-size: 9px;
+}
+
+.admin-groups-page .admin-group-card {
+    min-width: 0;
+    padding: 17px;
+    background: #ffffff;
+    border: 1px solid #dfe6f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(24, 52, 92, 0.04);
+}
+
+.admin-groups-page .admin-group-card h3 {
+    margin: 13px 0 5px;
+    color: #17366d;
+    font-size: 16px;
+}
+
+.admin-groups-page .admin-group-card > p {
+    min-height: 30px;
+    margin: 0;
+    color: #8a99ae;
+    font-size: 10px;
+}
+
+.admin-groups-page .group-active {
+    display: inline-flex;
+    padding: 5px 8px;
+    border-radius: 20px;
+    background: #e8f8f0;
+    color: #139765;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.admin-groups-page .group-delete-button {
+    min-height: 30px;
+    padding: 0 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 8px;
+    background: #fff1f2;
+    color: #e54852;
+    font-size: 9px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.admin-groups-page .user-group-card-footer {
+    margin-top: 13px;
+    padding-top: 11px;
+    border-top: 1px solid #edf0f5;
+}
+
+.admin-groups-page .user-group-card-footer > span {
+    color: #8998ad;
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .user-groups-main {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .user-groups-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    .user-groups-header {
+        flex-direction: column;
+    }
+
+    .user-groups-create {
+        width: 100%;
+    }
+
+    .user-groups-summary {
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+
+    .user-groups-search {
+        width: 100%;
+        margin-left: 0;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .user-groups-main {
+        padding: 22px 15px 40px;
+    }
+
+    .user-groups-header h1 {
+        font-size: 27px;
+    }
+
+    .user-groups-section {
+        padding: 16px;
+    }
+
+    .user-groups-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .user-groups-section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .new-group-link {
+        width: 100%;
+    }
+
+    .admin-groups-page > div:first-child {
+        flex-direction: column !important;
+    }
+
+}
+
+
+/* =========================================================
+   FINAL FIX - GROUPS PAGE / SIDEBAR MUST NOT COVER CONTENT
+   Reference: working Settlements layout.
+   ========================================================= */
+
+/* UserSidebar is fixed at 230px in the existing sidebar CSS.
+   Therefore the Groups page must reserve exactly that space. */
+.user-app-layout {
+    width: 100% !important;
+    min-height: 100vh !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    background: #f5f7fc !important;
+}
+
+.user-groups-main {
+    position: relative !important;
+    width: calc(100% - 230px) !important;
+    min-width: 0 !important;
+    min-height: 100vh !important;
+
+    margin-left: 230px !important;
+    padding: 34px 40px 55px !important;
+
+    background: #f5f7fc !important;
+    overflow-x: hidden !important;
+}
+
+/* Never allow a wide child to push the page underneath the sidebar. */
+.user-groups-main > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+}
+
+.user-groups-header,
+.user-groups-summary,
+.user-groups-section {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.user-groups-grid {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+/* Keep the search box inside the content area. */
+.user-groups-search {
+    min-width: 0 !important;
+    max-width: 330px !important;
+}
+
+.user-groups-search input {
+    min-width: 0 !important;
+}
+
+/* Same sidebar/content relationship as the Dashboard at smaller sizes. */
+@media (max-width: 1200px) {
+    .user-groups-main {
+        width: calc(100% - 210px) !important;
+        margin-left: 210px !important;
+        padding: 28px !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .user-groups-main {
+        width: calc(100% - 190px) !important;
+        margin-left: 0 !important;
+        padding: 20px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .user-groups-main {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 18px !important;
+    }
+}
